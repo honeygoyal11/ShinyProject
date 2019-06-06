@@ -1,0 +1,43 @@
+---
+title: "Developing Data Products-Reproducible Pitch Presentation"
+author: "Honey Goyal"
+date: "06 May 2019"
+output: ioslides_presentation
+---
+
+## INTRODUCTION
+This Reproducible Pitch Presentation is part two of the project under developing data products course at Coursera. We need to create a Shiny application and deploy it on Rstudio's servers. As part two of the project we should use Slidify/Rstudio Presenter to prepare a reproducible pitch presentation about the application.
+ 
+The app developed for the first part of the assignment is avalilable at:
+https://honeygoyalcoursera.shinyapps.io/ShinyprojectDiamondPrice/
+
+Source code for ui.R and server.R files are available on the GitHub:
+https://github.com/honeygoyal11/ShinyProject
+
+## RELATION OF DIAMOND PRICE WITH QUALITY 
+DiamondPrice shinyapp has diamond dataset from the ggplot2 package. The plot generated though the app has diamond price as the outcome against the weight predictor.The diamond dataset has 54000 diamonds data. The user inputs via a slider the proportion of this data that will be used to plot the realtion between the two variables as a scatterplot. A linear regression model is generated in the plot to clarify the relationship. 
+
+## The diamond dataset
+A dataset containing the prices and other attributes of almost 54,000 diamonds.
+```{r, echo=FALSE, eval=TRUE, warning=FALSE}
+suppressPackageStartupMessages(library(ggplot2))
+library(ggplot2)
+head(diamonds)
+```
+
+
+##PLOT
+Here we can see the relationship between the two variables: weight (carat) and price (price).
+```{r,echo=FALSE, eval=TRUE,warning=FALSE}
+suppressPackageStartupMessages(library(ggplot2))
+library(ggplot2)
+myTitle <- "Relationship of Diamond Price Vs its Weight"
+    qplot(carat, price, data=diamonds, geom = c("point", "smooth"),method = "lm") + labs(title = myTitle)
+
+```
+
+
+
+
+
+
